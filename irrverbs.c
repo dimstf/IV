@@ -13,10 +13,11 @@ ini irrverbs()
     IrrVerb correct,user;
     for(i=0;i<n;i++)
     {
+        char str1[13],str2[13];
         k=randverb(&mas);
         read_verb(&correct);
-		user->verb[0]=correct->verb[0];
-        
+        printf("%s",user->correct[0]);
+        scanf("%s%s",&str1,&str2);
     }
 
 
