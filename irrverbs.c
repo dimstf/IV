@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "irrverbs.h"
+int start
+{
+    printf("\nThis program is for checking the");
+    printf("knowledge of irregular verbs\n");
+}
 int irrverbs()
 {
     FILE *a;
