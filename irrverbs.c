@@ -9,7 +9,7 @@ int irrverbs()
         printf("Cannot open file IV.txt");
         return -1;
     }
-    int score=0,point,mas[200],j,i,k,n=40;
+    int score=0,point,mas[200]={0},j,i,k,n=40;
     IrrVerb correct;
     for(i=0;i<n;i++)
     {
