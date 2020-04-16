@@ -9,7 +9,7 @@ ini irrverbs()
         printf("Cannot open file IV.txt");
         return -1;
     }
-    int score=0,mas[200],j,i,k,n=40;
+    int score=0,point,mas[200],j,i,k,n=40;
     IrrVerb correct;
     for(i=0;i<n;i++)
     {
@@ -19,14 +19,8 @@ ini irrverbs()
         read_verb(&correct);
         printf("%s",correct->verb[0]);
         scanf("%s%s",&str1,&str2);
-        point++;
-        for(i=0;i<13;i++)
-        {
-            if(str1[i]!=correct->verb[1][i])
-            {
-                point--;
-            }
-        }
+        point=check_answer(&correct,&str1,&str2);
+        score+=point;
     }
 
 
