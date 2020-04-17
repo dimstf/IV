@@ -1,3 +1,4 @@
+#include <time.h>
 int check_answer(IrrVerb *corr,char *s1,char *s2)
 {
     int p=1;i;
@@ -16,6 +17,21 @@ int check_answer(IrrVerb *corr,char *s1,char *s2)
 }
 int rand_verb(int *arr)
 {
-    int l,val;
-    return val;
+    srand(time(NULL));
+    int value=0;
+    while(value==0)
+    {
+        value=(rand())%200+1;
+        if(arr[val]!=0)
+        {
+            value=0;
+        } else {
+            arr[value]++;
+        }
+    }
+    return value;
+}
+int readverb(IrrVerb *ans,FILE *f)
+{
+    
 }
