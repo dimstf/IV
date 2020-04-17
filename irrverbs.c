@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "irrverbs.h"
+#include "irrverbs2.c"
 int start
 {
     printf("\nThis program is for checking the");
