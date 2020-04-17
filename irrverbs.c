@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include "irrverbs.h"
 #include "irrverbs2.c"
-int start
+int start()
 {
     printf("\nThis program is for checking the");
     printf("knowledge of irregular verbs\n");
 }
-int irrverbs()
+int irrverbs(IrrVerb *correct)
 {
     FILE *a;
     if((a=fopen("IV.txt","r"))==NULL)
@@ -15,22 +15,21 @@ int irrverbs()
         printf("Cannot open file IV.txt");
         return -1;
     }
-    int score=0,point,mas[200]={0},j,i,k,n=40;
-    IrrVerb correct;
+    int score=0,point,mas[200]={0},i,k,n=40;
     for(i=0;i<n;i++)
     {
-        int point=0;
+        point=0;
         char str1[13],str2[13];
         k=randverb(&mas);
-        read_verb(&correct);
+        read_verb(&correct,a,k);
         printf("%s",correct->verb[0]);
         scanf("%s%s",&str1,&str2);
         point=check_answer(&correct,&str1,&str2);
         score+=point;
         if(point==0)
         {
-            printf("\n%s %s %s\n",correct->verb[0],correct->verb[1],
-            correct->verb[2]);
+            printf("\n%s %s ",correct->verb[0],correct->verb[1]);
+            printf("%s\n",correct->verb[2]);
         }
     }
     float result;
