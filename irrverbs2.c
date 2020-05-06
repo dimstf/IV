@@ -1,9 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "irrverbs.h"
 #include <time.h>
 int check_answer(IrrVerb *corr,char *s1,char *s2)
 {
-    int p=1;i;
+    int i,p=1;
     for(i=0;i<13;i++)
     {
         if(corr->verb[1][i]!=s1[i])
@@ -24,7 +25,7 @@ int rand_verb(int *arr)
     while(value==0)
     {
         value=(rand())%200+1;
-        if(arr[val]!=0)
+        if(arr[value]!=0)
         {
             value=0;
         } else {
@@ -33,17 +34,21 @@ int rand_verb(int *arr)
     }
     return value;
 }
-int readverb(IrrVerb *ans,FILE *f,int line)
+int read_verb(IrrVerb *ans,FILE *f,int line)
 {
+    char d[1];
     int l,string=0;
-    while((fgets(f)!='\0')&&(string<=line-1)&&(line>1))
+    while((fgets(&d,1,f)!='\0')&&(string<=line-1)&&(line>1))
     {
-        fseek(f,1,SEEK_CUR);
-        string++;
+        while(fgets(&d,1,f)=='\0')
+        {
+            string++;
+        }        
     }
     for(l=0;l<3;l++)
     {
-        fscanf(f,"%s",ans->verb[j]);
+        fscanf(f,"%s",ans->verb[l]);
     }
     fseek(f,0,SEEK_SET);
+    return 0;
 }

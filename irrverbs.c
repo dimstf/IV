@@ -19,8 +19,8 @@ int irrverbs(IrrVerb *correct)
     for(i=0;i<n;i++)
     {
         point=0;
-        char str1[13],str2[13];
-        k=randverb(&mas);
+        char str1[15],str2[15];
+        k=rand_verb(mas);
         read_verb(&correct,a,k);
         printf("%s",correct->verb[0]);
         scanf("%s%s",&str1,&str2);
