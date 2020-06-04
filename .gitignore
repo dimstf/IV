@@ -1,0 +1,5 @@
+bin/irrverbs
+# .o files
+build/main.o
+build/irrverbs.o
+build/irrverbs2.o

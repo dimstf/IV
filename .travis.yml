@@ -1,0 +1,5 @@
+sudo: required
+git:
+  depth: 1
+language: C
+script: make
