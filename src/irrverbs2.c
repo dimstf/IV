@@ -1,6 +1,6 @@
+#include "irrverbs.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "irrverbs.h"
 #include <time.h>
 int check_answer(IrrVerb *corr,char *s1,char *s2)
 {
@@ -15,6 +15,8 @@ int check_answer(IrrVerb *corr,char *s1,char *s2)
         {
             p=0;
         }
+        if(p==0)
+            break;
     }
     return p;
 }
@@ -36,11 +38,13 @@ int rand_verb(int *arr)
 }
 int read_verb(IrrVerb *ans,FILE *f,int line)
 {
-    char d[1];
+    char d;
     int l,string=0;
-    while((fgets(&d,1,f)!='\0')&&(string<=line-1)&&(line>1))
+    d=fgetc(f);
+    while((d!='\n')&&(string<=line-1)&&(line>1))
     {
-        while(fgets(&d,1,f)=='\0')
+        d=fgetc(f);
+        if(d=='\n')
         {
             string++;
         }        
