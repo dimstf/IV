@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "irrverbs2.c"
+#include "i2.h"
 void start()
 {
     printf("\nThis program is for checking the");
@@ -9,7 +9,7 @@ void start()
 int irrverbs(IrrVerb *correct)
 {
     FILE *a;
-    a=fopen("IV.txt","r");
+    a=fopen("dictionary/IV.txt","r");
     if(a==NULL)
     {
         printf("Cannot open file IV.txt");
