@@ -7,4 +7,3 @@ script:
   - bash ./src/src.sh
   - git status
   - make all test
-  - ./bin/test
