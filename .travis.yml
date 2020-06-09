@@ -3,7 +3,11 @@ git:
   depth: 1
 language: C
 script: 
-  - bash ./test/test.sh
-  - bash ./src/src.sh
+  - cd src 
+  - bash ./src.sh  
+  - cd -
+  - cd test
+  - bash ./test.sh
+  - cd -
   - git status
   - make all test
