@@ -1,6 +1,4 @@
 #include "i2.h"
-#include <stdio.h>
-#include <stdlib.h>
 void start()
 {
     printf("\nThis program is for checking the");
@@ -23,7 +21,15 @@ void irrverbs(IrrVerb* correct)
         printf("%s ", correct->verb[0]);
         scanf("%s%s", str1, str2);
         str1[15] = '\0';
-        str2[15] = '\0';
+        str2[15] = '\0';        
+        for(i=0;i<strlen(str1);i++)
+        {
+            str1[i]=tolower(str1[i]);
+        }
+        for(i=0;i<strlen(str2);i++)
+        {
+           str2[i]=tolower(str2[i]); 
+        }
         point = check_answer(correct, str1, str2);
         score = score + point;
         if (point == 0) {
