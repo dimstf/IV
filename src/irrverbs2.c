@@ -1,16 +1,24 @@
 #include "i3.h"
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include <time.h>
 int check_answer(IrrVerb *corr,char *s1,char *s2)
 {
     int i,p=1;
-    for(i=0;i<13;i++)
+    for(i=0;i<strlen(corr->verb[1]);i++)
     {
         if(corr->verb[1][i]!=s1[i])
         {
             p=0;
         }
+        if(p==0)
+        {    
+        break;
+        }
+    }
+    for(i=0;i<strlen(corr->verb[2]);i++)
+    {
         if(corr->verb[2][i]!=s2[i])
         {
             p=0;
@@ -36,12 +44,12 @@ int rand_verb(int *arr)
     }
     return value;
 }
-int read_verb(IrrVerb *ans,FILE *f,int line)
+void read_verb(IrrVerb *ans,FILE *f,int line)
 {
     char d;
     int l,string=0;
     d=fgetc(f);
-    while((d!='\n')&&(string<=line-1)&&(line>1))
+    while((string<=line-2)&&(line>2))
     {
         d=fgetc(f);
         if(d=='\n')
@@ -49,10 +57,17 @@ int read_verb(IrrVerb *ans,FILE *f,int line)
             string++;
         }        
     }
+    if(line==1)
+    {
+        fseek(f,0,SEEK_SET);
+    }
+    if(line==2)
+    {
+        fseek(f,20,SEEK_SET);
+    }
     for(l=0;l<3;l++)
     {
         fscanf(f,"%s",ans->verb[l]);
     }
     fseek(f,0,SEEK_SET);
-    return 0;
 }
