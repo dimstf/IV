@@ -1,6 +1,6 @@
+#include "i2.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "i2.h"
 void start()
 {
     printf("\nThis program is for checking the");
