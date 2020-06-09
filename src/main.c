@@ -1,8 +1,8 @@
 #include "irrverbs.h"
 int main()
 {
-	IrrVerb verbs;
-	start();
-	irrverbs(&verbs);
-	return 0;
+    IrrVerb verbs;
+    start();
+    irrverbs(&verbs);
+    return 0;
 }

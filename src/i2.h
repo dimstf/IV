@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #if !defined irrverbs_h
 #define irrverbs_h
 typedef struct {
